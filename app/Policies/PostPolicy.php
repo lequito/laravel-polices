@@ -7,6 +7,15 @@ use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
 class PostPolicy{
+
+
+    public function before(User $user){
+        if($user->name === 'SUPER'){
+            return true;
+        }
+
+        return null;
+    }
     
     public function viewAny(User $user): bool
     {
