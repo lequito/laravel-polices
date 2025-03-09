@@ -13,11 +13,11 @@
     </div>
     <div class="d-flex justify-content-end gap-5">
         @can('update', $post)
-            <a href="#" class="btn btn-primary">Editar</a>
+            <a href="{{ route('post_update', ['id' => $post->id] ) }}" class="btn btn-primary">Editar</a>
         @endcan
         
         @can('delete', $post)
-            <a href="#" class="btn btn-danger">Excluir</a>
+            <a href="{{ route('post_delete', ['id' => $post->id] ) }}" class="btn btn-danger">Excluir</a>
         @endcan
     </div>
 </div>
