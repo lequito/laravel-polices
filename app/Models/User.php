@@ -10,4 +10,8 @@ class User extends Authenticable{
     public function posts(){
         return $this->hasMany(Post::class);
     }
+
+    public function permissions(){
+        return $this->hasMany(UsersPermission::class);
+    }
 }
