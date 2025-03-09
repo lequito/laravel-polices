@@ -13,13 +13,6 @@ class AuthController extends Controller{
         $user = User::with('permissions')->find($id);
         Auth::login($user);
 
-        echo '<pre>';
-
-        $user = Auth::user()->toArray();
-        print_r($user);
-
-        die();
-
         return redirect()->route('home');
     }
     

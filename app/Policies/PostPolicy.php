@@ -19,26 +19,15 @@ class PostPolicy{
 
  
     public function create(User $user): bool{
-        if($user->role !== 'visitor'){
-            return true;
-        }
-        return false;
+        return $user->permissions->contains('permission', 'create_post');
     }
 
-    /**
-     * Determine whether the user can update the model.
-     */
-    public function update(User $user, Post $post): bool
-    {
-        return $user->id === $post->user_id;
+    public function update(User $user, Post $post): bool{
+        return $user->permissions->contains('permission', 'update_post');
     }
 
-    /**
-     * Determine whether the user can delete the model.
-     */
-    public function delete(User $user, Post $post): bool
-    {
-        return $user->role === 'admin';
+    public function delete(User $user, Post $post): bool{
+        return $user->permissions->contains('permission', 'delete_post');
     }
 
     /**
