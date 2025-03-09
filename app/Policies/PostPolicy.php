@@ -18,9 +18,11 @@ class PostPolicy{
     }
 
  
-    public function create(User $user): bool
-    {
-        return true;
+    public function create(User $user): bool{
+        if($user->role !== 'visitor'){
+            return true;
+        }
+        return false;
     }
 
     /**

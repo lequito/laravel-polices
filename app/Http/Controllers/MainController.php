@@ -37,4 +37,12 @@ class MainController extends Controller{
             # code...
         }
     }
+
+    public function create(){
+        if (Auth::user()->can('create', Post::class)) {
+            echo "pode criar post";
+        } else {
+            echo "não pode criar post";
+        }
+    }
 }
