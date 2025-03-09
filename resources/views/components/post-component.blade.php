@@ -15,5 +15,9 @@
         @can('update', $post)
             <a href="#" class="btn btn-primary">Editar</a>
         @endcan
+        
+        @can('delete', $post)
+            <a href="#" class="btn btn-danger">Excluir</a>
+        @endcan
     </div>
 </div>

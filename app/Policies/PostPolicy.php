@@ -36,7 +36,7 @@ class PostPolicy{
      */
     public function delete(User $user, Post $post): bool
     {
-        return true;
+        return $user->role === 'admin';
     }
 
     /**
