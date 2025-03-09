@@ -11,4 +11,9 @@
         <h4>{{ $post->title }}</h4>
         <p>{{ $post->content }}</p>
     </div>
+    <div class="d-flex justify-content-end gap-5">
+        @can('update', $post)
+            <a href="#" class="btn btn-primary">Editar</a>
+        @endcan
+    </div>
 </div>

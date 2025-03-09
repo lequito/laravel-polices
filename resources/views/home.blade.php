@@ -10,7 +10,9 @@
         <div class="row">
             <div class="col">
                 @foreach ($posts as $post)
-                    <x-post-component :post="$post" />         
+                    @can('view', $post)
+                        <x-post-component :post="$post" />         
+                    @endcan
                 @endforeach
             </div>
         </div>
